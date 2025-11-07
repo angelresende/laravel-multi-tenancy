@@ -2,10 +2,11 @@
 
 namespace {{ namespace }};
 
-{{ factoryImport }}
+use App\Trait\BelongsToCompany;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class {{ class }} extends Model
 {
-    {{ factory }}
+    use HasFactory, BelongsToCompany;
 }
