@@ -13,7 +13,7 @@ class CompanyScope implements Scope
      */
     public function apply(Builder $builder, Model $model): void
     {
-        if(session()->has('company_id')){
+        if (session()->has('company_id')) {
             $builder->where('company_id', session()->get('company_id'));
         }
     }

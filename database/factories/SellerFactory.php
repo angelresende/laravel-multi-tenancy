@@ -2,7 +2,6 @@
 
 namespace Database\Factories;
 
-use App\Enums\RoleEnum;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -20,7 +19,7 @@ class SellerFactory extends Factory
     {
         return [
             'company_id' => fake()->numberBetween(1, 4),
-            'user_id' => User::factory()->create(['role_id' => RoleEnum::CLIENT]),
+            'user_id' => User::factory()->create(['role_id' => fake()->numberBetween(2, 3)]),
         ];
     }
 }

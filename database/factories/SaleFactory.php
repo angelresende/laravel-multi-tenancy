@@ -19,6 +19,7 @@ class SaleFactory extends Factory
      */
     public function definition()
     {
+
         $company_id = fake()->numberBetween(1,4);
 
         return [

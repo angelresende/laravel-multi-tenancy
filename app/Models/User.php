@@ -3,7 +3,6 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
-
 use App\Enums\RoleEnum;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -39,15 +38,13 @@ class User extends Authenticatable
         'remember_token',
     ];
 
-    /**
-     * The attributes that should be cast.
-     *
-     * @var array<string, string>
-     */
-    protected $casts = [
-        'email_verified_at' => 'datetime',
-        'role_id' => RoleEnum::class
-    ];
+    protected function casts(): array
+    {
+        return [
+            'email_verified_at' => 'datetime',
+            'role_id' => RoleEnum::class
+        ];
+    }
 
     public function client(): HasOne
     {
@@ -63,5 +60,4 @@ class User extends Authenticatable
     {
         return $this->belongsTo(Role::class);
     }
-
 }

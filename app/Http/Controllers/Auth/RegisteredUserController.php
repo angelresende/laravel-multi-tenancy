@@ -8,7 +8,6 @@ use App\Models\Company;
 use App\Models\Seller;
 use App\Models\User;
 use App\Providers\RouteServiceProvider;
-use Exception;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -47,8 +46,8 @@ class RegisteredUserController extends Controller
             DB::beginTransaction();
 
             $company = Company::create([
-                'name' => $request->company_name,
-                'commission_rate' => 1
+                'commission_rate' => 1,
+                'name' => $request->company_name
             ]);
 
             $user = User::create([
@@ -64,7 +63,7 @@ class RegisteredUserController extends Controller
             ]);
 
             DB::commit();
-        }catch (Exception $e){
+        } catch (\Exception $e) {
             DB::rollBack();
             return redirect()->back()->with('error', 'Problem creating new user');
         }

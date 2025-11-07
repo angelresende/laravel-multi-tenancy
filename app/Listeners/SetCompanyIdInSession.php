@@ -21,11 +21,12 @@ class SetCompanyIdInSession
      */
     public function handle(object $event): void
     {
-        if ($event->user->role_id == RoleEnum::MANAGER ||
+        if (
+            $event->user->role_id == RoleEnum::MANAGER ||
             $event->user->role_id == RoleEnum::SELLER
-        ){
+        ) {
             session()->put('company_id', $event->user->seller->company_id);
-        }else if ($event->user->role_id == RoleEnum::CLIENT){
+        } else if ($event->user->role_id == RoleEnum::CLIENT) {
             session()->put('company_id', $event->user->client->company_id);
         }
     }

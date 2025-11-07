@@ -20,7 +20,7 @@ class DatabaseSeeder extends Seeder
             AddressSeeder::class,
             CompanySeeder::class,
             UserSeeder::class,
-            SaleSeeder::class
+            SaleSeeder::class,
         ]);
 
         DB::unprepared("REFRESH MATERIALIZED VIEW sales_commission_view");

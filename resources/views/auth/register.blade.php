@@ -2,9 +2,10 @@
     <form method="POST" action="{{ route('register') }}">
         @csrf
 
-         <!-- Company Name -->
+        <x-input-error :messages="session()->get('error')" class="mt-2" />
+
         <div>
-            <x-input-label for="company_name" :value="__('Company_Name')" />
+            <x-input-label for="company_name" :value="__('Company Name')" />
             <x-text-input id="company_name" class="block mt-1 w-full" type="text" name="company_name" :value="old('company_name')" required autofocus autocomplete="company_name" />
             <x-input-error :messages="$errors->get('company_name')" class="mt-2" />
         </div>

@@ -12,6 +12,12 @@ use Illuminate\Support\Facades\Hash;
 
 class ClientController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->authorizeResource(Client::class, 'client');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -45,7 +51,7 @@ class ClientController extends Controller
                 'role_id' => RoleEnum::CLIENT,
                 'email' => $request->get('email'),
                 'name' => $request->get('name'),
-                'password' => Hash::make('12345678')
+                'password' => Hash::make('123456')
             ]);
 
             $user->client()->create([

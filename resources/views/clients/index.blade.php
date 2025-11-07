@@ -13,8 +13,8 @@
                     <livewire:table
                         resource="Client"
                         :columns="[
-                            ['label' => 'Company','column' => 'company.name'],
                             ['label' => 'Client', 'column' => 'user.name'],
+                            ['label' => 'Company','column' => 'company.name'],
                             ['label' => 'Email','column' => 'user.email'],
                             ['label' => 'City', 'column' => 'address.city'],
                             ['label' => 'State', 'column' => 'address.state'],
